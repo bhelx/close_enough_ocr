@@ -1,5 +1,7 @@
 require 'tesseract'
 
+Tesseract::DependencyChecker.check!
+
 module CloseEnough::Ocr
   class Image
     attr_accessor :file_path, :text
