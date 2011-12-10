@@ -1,6 +1,6 @@
 require 'tesseract'
 
-Tesseract::DependencyChecker.check!
+#Tesseract::DependencyChecker.check!
 
 module CloseEnough::Ocr
   class Image
