@@ -12,9 +12,10 @@ module CloseEnough::Ocr
     def agrep_location(text, fuzziness=1)
       raise "Locations not loaded" unless @locations
 
+      full_text = text.downcase
       @locations.each do |loc|
-        found = text.ascan(loc.downcase, TRE.fuzziness(fuzziness))
-        return found if found.any?
+        found = full_text.ascan(loc.downcase, TRE.fuzziness(fuzziness))
+        return [loc, found] if found.any?
       end
     end
 
