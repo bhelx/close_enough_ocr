@@ -13,7 +13,8 @@ module CloseEnough::Ocr
       raise "Locations not loaded" unless @locations
 
       @locations.each do |loc|
-        return found if found = text.ascan(loc, TRE.fuziness(fuzziness))
+        found = text.ascan(loc, TRE.fuziness(fuzziness))
+        return found if found
       end
     end
 

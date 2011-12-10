@@ -2,12 +2,11 @@ require "close_enough_ocr/version"
 require 'close_enough/image'
 require 'close_enough/location_finder'
 
-
 module CloseEnough
   module Ocr
     extend self
 
-    def load_locations
+    def load_locations!
       #get locations
       LocationFinder.locations = nil #locations
     end
