@@ -11,9 +11,9 @@ module CloseEnough
       LocationFinder.locations = locations
     end
 
-    def locations_from_image(path, fuzziness=2)
+    def locations_from_image(path, fuzziness=1)
       img = Image.new path
-      LocationFinder.agrep_location(img.process!, fuzziness)
+      LocationFinder.agrep_location(img.text, fuzziness)
     end
 
   end
