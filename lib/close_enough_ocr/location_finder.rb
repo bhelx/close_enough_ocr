@@ -14,7 +14,7 @@ module CloseEnough::Ocr
 
       full_text = text.downcase
       @locations.each do |loc|
-        found = full_text.ascan(loc.downcase, TRE.fuzziness(fuzziness))
+        found = full_text.ascan(loc.name.downcase, TRE.fuzziness(fuzziness))
         return [loc, found] if found.any?
       end
     end

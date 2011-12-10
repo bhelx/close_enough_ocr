@@ -7,7 +7,6 @@ module CloseEnough
     extend self
 
     def load_locations!(locations)
-      #get locations
       LocationFinder.locations = locations
     end
 
