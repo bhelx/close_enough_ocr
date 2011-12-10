@@ -1,5 +1,5 @@
 require 'tre-ruby'
-require 'close_enough/core_ext/string'
+require 'close_enough_ocr/core_ext/string'
 
 module CloseEnough::Ocr
   module LocationFinder
@@ -13,7 +13,7 @@ module CloseEnough::Ocr
       raise "Locations not loaded" unless @locations
 
       @locations.each do |loc|
-        found = text.ascan(loc, TRE.fuziness(fuzziness))
+        found = text.ascan(loc.downcase, TRE.fuziness(fuzziness))
         return found if found
       end
     end
