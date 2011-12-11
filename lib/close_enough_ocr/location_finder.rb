@@ -17,6 +17,9 @@ module CloseEnough::Ocr
         found = full_text.ascan(loc.name.downcase, TRE.fuzziness(fuzziness))
         return [loc, found] if found.any?
       end
+ 
+      @locations.sort_by! { |loc| loc.name.length }
+      @locations.reverse
     end
 
   end
