@@ -29,6 +29,10 @@ describe CloseEnough::Ocr do
       res = CloseEnough::Ocr.locations_from_image(File.join(File.dirname(__FILE__), 'event2.jpg'))
       puts "event2.jpg -> #{res.first.name} #{res[1].inspect}"
       res.first.name.should == "New Orleans Museum of Art"
+      
+      res = CloseEnough::Ocr.locations_from_image(File.join(File.dirname(__FILE__), 'event4.jpg'))
+      puts "event4.jpg -> #{res.first.name} #{res[1].inspect}"
+      res.first.name.should == "New Orleans Museum of Art"
     end
 
   end

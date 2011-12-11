@@ -12,14 +12,20 @@ module CloseEnough::Ocr
     def agrep_location(text, fuzziness=1)
       raise "Locations not loaded" unless @locations
 
-      full_text = text.downcase
+      full_text = digest(text)
       @locations.each do |loc|
-        found = full_text.ascan(loc.name.downcase, TRE.fuzziness(fuzziness))
+        found = full_text.ascan(digest(loc.name), TRE.fuzziness(fuzziness))
         return [loc, found] if found.any?
       end
  
       @locations.sort_by! { |loc| loc.name.length }
       @locations.reverse
+    end
+
+    private
+    
+    def digest(text)
+      text.downcase.gsub(/[^a-z|\d]/, '')
     end
 
   end
