@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'tre-ruby'
 require 'close_enough_ocr/core_ext/string'
 
