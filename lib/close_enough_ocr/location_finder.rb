@@ -27,7 +27,7 @@ module CloseEnough::Ocr
     private
     
     def digest(text)
-      text.downcase.gsub(/[\x80-\xff]/,'').gsub(/[^a-z|\d]/, '')
+      text.downcase.gsub(/[^a-z|\d]/, '')
     end
 
   end
