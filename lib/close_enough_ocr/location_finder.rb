@@ -19,13 +19,11 @@ module CloseEnough::Ocr
         found = full_text.ascan(digest(loc.name), TRE.fuzziness(fuzziness))
         return [loc, found] if found.any?
       end
- 
-      @locations.sort_by! { |loc| loc.name.length }
-      @locations.reverse
+
     end
 
     private
-    
+
     def digest(text)
       text.downcase.gsub(/[^a-z|\d]/, '')
     end

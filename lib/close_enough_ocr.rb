@@ -7,6 +7,8 @@ module CloseEnough
     extend self
 
     def load_locations!(locations)
+      locations.sort_by! { |loc| loc.digested_name.length }
+      locations.reverse!
       LocationFinder.locations = locations
     end
 
