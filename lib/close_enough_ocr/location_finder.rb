@@ -22,6 +22,18 @@ module CloseEnough::Ocr
 
     end
 
+    def autocomplete(text, fuzziness=1)
+      raise "Locations not loaded" unless @locations
+
+      locs = []
+      full_text = digest(text)
+      @locations.each do |loc|
+        found = loc.digested_name.ascan(full_text, TRE.fuzziness(fuzziness))
+        locs << loc if found.any?
+      end
+      locs
+    end
+
     private
 
     def digest(text)
